@@ -1,0 +1,6 @@
+{
+  "name": "Status Saver",
+  "description": "Status Saver - Video & Image Downloader for WhatsApp and WhatsApp Business",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

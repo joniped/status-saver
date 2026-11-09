@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="2dp"
+    app:strokeColor="@color/card_stroke"
+    app:strokeWidth="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Status Media Thumbnail -->
+        <ImageView
+            android:id="@+id/iv_thumbnail"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="Status Media"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/status_saver_icon_1794234402366" />
+
+        <!-- Selection Tint Overlay -->
+        <View
+            android:id="@+id/selection_overlay"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/selection_overlay"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_thumbnail"
+            app:layout_constraintEnd_toEndOf="@+id/iv_thumbnail"
+            app:layout_constraintStart_toStartOf="@+id/iv_thumbnail"
+            app:layout_constraintTop_toTopOf="@+id/iv_thumbnail"
+            tools:visibility="visible" />
+
+        <!-- Bottom Gradient for button contrast -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:background="@drawable/bg_badge_video"
+            android:backgroundTint="@color/overlay_black_40"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_thumbnail"
+            app:layout_constraintEnd_toEndOf="@+id/iv_thumbnail"
+            app:layout_constraintStart_toStartOf="@+id/iv_thumbnail" />
+
+        <!-- Video Indicator Badge (Top Left) -->
+        <LinearLayout
+            android:id="@+id/badge_video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:background="@drawable/bg_badge_video"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:contentDescription="Video"
+                android:src="@drawable/ic_play_arrow"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:text="VIDEO"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Saved Badge (Top Left if not video, or next to video) -->
+        <ImageView
+            android:id="@+id/badge_saved"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_margin="6dp"
+            android:background="@drawable/bg_circle_button"
+            android:backgroundTint="@color/saved_badge"
+            android:contentDescription="Saved"
+            android:padding="3dp"
+            android:src="@drawable/ic_check"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_thumbnail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tint="@color/white"
+            tools:visibility="visible" />
+
+        <!-- Multi-select Checkbox (Top Right) -->
+        <ImageView
+            android:id="@+id/iv_checkbox"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_margin="6dp"
+            android:background="@drawable/bg_circle_button"
+            android:contentDescription="Select"
+            android:padding="4dp"
+            android:src="@drawable/ic_check"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white"
+            tools:visibility="visible" />
+
+        <!-- Quick Download Button (Bottom Right) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_quick_download"
+            style="@style/Widget.Material3.Button.IconButton.Filled"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_margin="4dp"
+            android:backgroundTint="@color/primary"
+            android:contentDescription="Save Status"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:padding="0dp"
+            app:icon="@drawable/ic_download"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconSize="18dp"
+            app:iconTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_thumbnail"
+            app:layout_constraintEnd_toEndOf="@+id/iv_thumbnail" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_direct_share"
+        android:icon="@drawable/ic_share"
+        android:title="@string/share_app"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_theme_toggle"
+        android:icon="@drawable/ic_theme_mode"
+        android:title="@string/menu_theme_toggle"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_how_to_use"
+        android:icon="@drawable/ic_help"
+        android:title="@string/menu_how_to_use"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_privacy_policy"
+        android:title="@string/menu_privacy_policy"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_terms"
+        android:title="@string/menu_terms"
+        app:showAsAction="never" />
+</menu>

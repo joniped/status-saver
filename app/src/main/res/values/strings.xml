@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">Status Saver</string>
+    <string name="app_title">Status Saver - Video &amp; Image Downloader</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="whatsapp_business">WA Business</string>
+    <string name="tab_images">Images</string>
+    <string name="tab_videos">Videos</string>
+    <string name="tab_saved">Saved</string>
+    <string name="permission_required_title">Permission Required</string>
+    <string name="permission_required_desc">Android 11+ requires folder access to view statuses. Click below and tap \"Use this folder\" to grant permission.</string>
+    <string name="grant_permission">Grant Permission</string>
+    <string name="open_whatsapp">Open WhatsApp</string>
+    <string name="open_business">Open WA Business</string>
+    <string name="no_statuses_title">No Statuses Found</string>
+    <string name="no_statuses_desc">Open WhatsApp, view recent friend statuses, and they will automatically appear here!</string>
+    <string name="no_saved_title">No Saved Statuses</string>
+    <string name="no_saved_desc">Save statuses to your Gallery to see them here anytime, even after 24 hours.</string>
+    <string name="saved_successfully">Saved to Gallery!</string>
+    <string name="save_failed">Failed to save status</string>
+    <string name="repost">Repost</string>
+    <string name="share">Share</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="delete_confirm_title">Delete Saved Status?</string>
+    <string name="delete_confirm_desc">This status will be permanently removed from your saved gallery.</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="selected_count">%1$d Selected</string>
+    <string name="select_all">Select All</string>
+    <string name="clear_selection">Clear</string>
+    <string name="save_selected">Save (%1$d)</string>
+    <string name="share_selected">Share (%1$d)</string>
+    <string name="repost_to_wa">Repost to WhatsApp</string>
+    <string name="repost_to_business">Repost to WA Business</string>
+    <string name="whatsapp_not_installed">WhatsApp is not installed on this device</string>
+    <string name="media_viewer">Status Viewer</string>
+    <string name="refresh">Refresh</string>
+
+    <!-- Menu & Legal & Guidelines -->
+    <string name="menu_how_to_use">How to Use</string>
+    <string name="menu_privacy_policy">Privacy Policy</string>
+    <string name="menu_terms">Terms of Service</string>
+    <string name="menu_theme_toggle">Toggle Dark Mode</string>
+
+    <string name="how_to_use_title">How to Use Status Saver</string>
+    <string name="how_to_use_step1">1. Open WhatsApp or WhatsApp Business and view your contacts\' statuses.</string>
+    <string name="how_to_use_step2">2. Return to Status Saver. All viewed images and videos will automatically appear in their respective tabs.</string>
+    <string name="how_to_use_step3">3. Tap any status thumbnail to view it full-screen. Swipe left and right to browse all statuses without going back!</string>
+    <string name="how_to_use_step4">4. Tap the Save button to save directly to your phone\'s Gallery, or tap Repost / Share to post directly to your own status or social apps.</string>
+    <string name="how_to_use_step5">5. Long-press any item to enter multi-select mode to save or share multiple statuses at once.</string>
+
+    <string name="privacy_policy_title">Privacy Policy</string>
+    <string name="privacy_policy_content">Effective Date: November 2026\n\n1. Information Collection &amp; Use\nStatus Saver does not collect, harvest, store, or transmit any personal information, photos, videos, or contact details to external servers. All status viewing and saving operations occur entirely on your local device.\n\n2. Device Permissions\nOur application requests Storage and Storage Access Framework (SAF) folder permissions strictly to read temporary WhatsApp status files and save selected files directly to your device\'s local Gallery (Pictures/StatusSaver and Movies/StatusSaver).\n\n3. Advertising &amp; Third-Party SDKs\nThis application displays advertisements powered by the Unity Ads SDK. Unity Ads may collect anonymous device diagnostics, IP address, and advertising identifiers according to Unity\'s Privacy Policy (https://unity.com/legal/privacy-policy) to deliver relevant ad experiences.\n\n4. Contact Us\nIf you have questions regarding this Privacy Policy, please contact our support team.</string>
+
+    <string name="terms_of_service_title">Terms of Service</string>
+    <string name="terms_of_service_content">1. Intellectual Property &amp; User Conduct\nStatus Saver is an independent utility application designed to help users preserve and manage media locally. Users are solely responsible for ensuring they have the necessary rights or explicit permission from original content creators before downloading, reposting, or redistributing any photos, videos, or audio.\n\n2. Non-Affiliation Disclaimer\nStatus Saver is an independent application and is not affiliated with, authorized, maintained, sponsored, or endorsed by WhatsApp LLC, WhatsApp Business, Meta Platforms, Inc., or any of their affiliates.\n\n3. Disclaimer of Warranties\nThe service is provided on an \"AS IS\" and \"AS AVAILABLE\" basis without warranties of any kind.</string>
+
+    <!-- In-App Review & Rating -->
+    <string name="review_prompt_title">Enjoying Status Saver?</string>
+    <string name="review_prompt_message">If you find Status Saver helpful, please take a moment to rate us on Google Play! Your feedback helps us improve.</string>
+    <string name="rate_now">Rate Now</string>
+    <string name="rate_later">Later</string>
+    <string name="rate_no_thanks">No Thanks</string>
+
+    <!-- Exit Dialog -->
+    <string name="exit_dialog_title">Exit Status Saver?</string>
+    <string name="exit_dialog_message">Are you sure you want to close the application?</string>
+    <string name="exit">Exit</string>
+
+    <!-- Direct Share -->
+    <string name="share_app">Share App</string>
+    <string name="share_app_text">Save and download photos &amp; videos from WhatsApp statuses in one click with Status Saver! Check it out on Google Play: https://play.google.com/store/apps/details?id=%1$s</string>
+
+    <!-- Onboarding / Welcome Page -->
+    <string name="onboard_title_1">Download &amp; Save Statuses</string>
+    <string name="onboard_desc_1">Save photos and videos from your friends\' WhatsApp statuses directly into your phone\'s Gallery in original HD quality.</string>
+    <string name="onboard_title_2">Dual WhatsApp Support</string>
+    <string name="onboard_desc_2">Seamlessly switch between Normal WhatsApp and WhatsApp Business with a single tap to manage all your media.</string>
+    <string name="onboard_title_3">Swipe Preview &amp; Share</string>
+    <string name="onboard_desc_3">Swipe left and right to view full-screen media with built-in player. Repost to your status or share with friends in seconds.</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="get_started">Get Started</string>
+</resources>

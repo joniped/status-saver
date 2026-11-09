@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_onboarding"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_screen">
+
+    <!-- Top Bar with Skip Button -->
+    <LinearLayout
+        android:id="@+id/layout_top_onboard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="end|center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_skip"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/skip"
+            android:textColor="@color/primary"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Onboarding ViewPager2 -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager_onboard"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/layout_bottom_onboard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_top_onboard" />
+
+    <!-- Bottom Controls (Dots & Action Button) -->
+    <LinearLayout
+        android:id="@+id/layout_bottom_onboard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="24dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Dot Indicators using TabLayout -->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:background="@android:color/transparent"
+            app:tabBackground="@drawable/bg_circle_button"
+            app:tabGravity="center"
+            app:tabIndicatorColor="@color/primary"
+            app:tabIndicatorHeight="0dp"
+            app:tabMaxWidth="16dp"
+            app:tabMinWidth="16dp"
+            app:tabRippleColor="@null"
+            app:tabSelectedTextColor="@color/primary" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <!-- Next / Get Started Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:backgroundTint="@color/primary"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:text="@string/next"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:cornerRadius="24dp"
+            app:icon="@drawable/ic_check"
+            app:iconGravity="textEnd"
+            app:iconTint="@color/white" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingStart="24dp"
+    android:paddingTop="16dp"
+    android:paddingEnd="24dp"
+    android:paddingBottom="16dp">
+
+    <!-- Slide Illustration Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="6dp"
+        app:strokeColor="@color/card_border"
+        app:strokeWidth="1dp">
+
+        <ImageView
+            android:id="@+id/iv_slide_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="Onboarding Illustration"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/onboard_save_1794238805082" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Slide Title -->
+    <TextView
+        android:id="@+id/tv_slide_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="@string/onboard_title_1"
+        android:textColor="@color/text_main"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <!-- Slide Description -->
+    <TextView
+        android:id="@+id/tv_slide_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:text="@string/onboard_desc_1"
+        android:textColor="@color/text_muted"
+        android:textSize="14sp" />
+
+</LinearLayout>

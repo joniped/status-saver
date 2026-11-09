@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light">
+
+    <!-- Main Content Container with App Bar and ViewPager -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Status Bar Matching Green Scrim View -->
+        <View
+            android:id="@+id/status_bar_scrim"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/primary_dark" />
+
+        <!-- Custom Top App Bar -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary_dark">
+
+            <!-- Normal Toolbar -->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:contentInsetStart="16dp"
+                app:contentInsetEnd="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <!-- App Title -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/app_name"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <!-- WhatsApp / WA Business Toggle Chips -->
+                    <com.google.android.material.button.MaterialButtonToggleGroup
+                        android:id="@+id/toggle_app_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:checkedButton="@+id/btn_toggle_whatsapp"
+                        app:selectionRequired="true"
+                        app:singleSelection="true">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_toggle_whatsapp"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:text="@string/whatsapp"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            app:icon="@drawable/ic_whatsapp"
+                            app:iconPadding="4dp"
+                            app:iconSize="16dp"
+                            app:iconTint="@color/white"
+                            app:strokeColor="@color/white" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_toggle_business"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:text="@string/whatsapp_business"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            app:icon="@drawable/ic_whatsapp_business"
+                            app:iconPadding="4dp"
+                            app:iconSize="16dp"
+                            app:iconTint="@color/white"
+                            app:strokeColor="@color/white" />
+                    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                </LinearLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+            <!-- Multi-Select Contextual Toolbar (Overlaid or toggled) -->
+            <LinearLayout
+                android:id="@+id/layout_selection_bar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/primary"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <ImageButton
+                    android:id="@+id/btn_clear_selection"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Close Selection"
+                    android:src="@drawable/ic_close"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:id="@+id/tv_selection_count"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:text="1 Selected"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/btn_select_all"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Select All"
+                    android:src="@drawable/ic_select_all"
+                    app:tint="@color/white" />
+
+            </LinearLayout>
+
+            <!-- Tabs: Images, Videos, Saved -->
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/primary_dark"
+                app:tabIndicatorColor="@color/white"
+                app:tabIndicatorHeight="3dp"
+                app:tabMode="fixed"
+                app:tabRippleColor="@color/ripple_color"
+                app:tabSelectedTextColor="@color/white"
+                app:tabTextColor="#CCFFFFFF" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- ViewPager2 for the 3 tabs -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- Batch Action Bottom Bar for Multi-select -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/layout_batch_actions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:visibility="gone"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            app:strokeColor="@color/card_stroke"
+            app:strokeWidth="1dp"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_batch_save"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/primary"
+                    android:text="@string/save"
+                    android:textColor="@color/white"
+                    app:cornerRadius="12dp"
+                    app:icon="@drawable/ic_download"
+                    app:iconTint="@color/white" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_batch_share"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/share"
+                    app:cornerRadius="12dp"
+                    app:icon="@drawable/ic_share" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_batch_delete"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:contentDescription="Delete Selected"
+                    android:visibility="gone"
+                    app:cornerRadius="12dp"
+                    app:icon="@drawable/ic_delete"
+                    app:iconTint="@color/delete_red"
+                    tools:visibility="visible" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Sticky Unity Banner Ad Container (320x50, Centered) -->
+        <LinearLayout
+            android:id="@+id/banner_ad_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/surface_light"
+            android:gravity="center"
+            android:minHeight="50dp"
+            android:orientation="vertical" />
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

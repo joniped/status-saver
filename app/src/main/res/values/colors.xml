@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Colors -->
+    <color name="primary">#00A884</color>
+    <color name="primary_dark">#008069</color>
+    <color name="primary_variant">#128C7E</color>
+    <color name="accent">#25D366</color>
+    <color name="business_accent">#008B7A</color>
+
+    <!-- Surfaces & Backgrounds -->
+    <color name="background_light">#F6F8F8</color>
+    <color name="surface_light">#FFFFFF</color>
+    <color name="surface_variant_light">#E9EDEF</color>
+    <color name="card_stroke">#E0E5E7</color>
+
+    <color name="background_dark">#121B22</color>
+    <color name="surface_dark">#1F2C34</color>
+    <color name="surface_variant_dark">#2A3942</color>
+
+    <!-- Semantic Theme Colors (Default / Light Mode) -->
+    <color name="bg_screen">#F6F8F8</color>
+    <color name="card_surface">#FFFFFF</color>
+    <color name="card_border">#E0E5E7</color>
+    <color name="text_main">#111B21</color>
+    <color name="text_muted">#667781</color>
+    <color name="banner_bg">#FFFFFF</color>
+    <color name="dialog_bg">#FFFFFF</color>
+
+    <!-- Text & Icons -->
+    <color name="text_primary">#111B21</color>
+    <color name="text_secondary">#667781</color>
+    <color name="text_hint">#8696A0</color>
+    <color name="text_on_primary">#FFFFFF</color>
+
+    <!-- State & Overlay -->
+    <color name="overlay_black_40">#66000000</color>
+    <color name="overlay_black_60">#99000000</color>
+    <color name="ripple_color">#2000A884</color>
+    <color name="selection_overlay">#3300A884</color>
+    <color name="delete_red">#E53935</color>
+    <color name="saved_badge">#4CAF50</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+</resources>
