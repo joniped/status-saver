@@ -58,20 +58,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <!-- Dot Indicators using TabLayout -->
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_indicator"
+        <!-- Custom Pill Dot Indicators -->
+        <LinearLayout
+            android:id="@+id/layout_dots"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
-            android:background="@android:color/transparent"
-            app:tabBackground="@drawable/bg_circle_button"
-            app:tabGravity="center"
-            app:tabIndicatorColor="@color/primary"
-            app:tabIndicatorHeight="0dp"
-            app:tabMaxWidth="16dp"
-            app:tabMinWidth="16dp"
-            app:tabRippleColor="@null"
-            app:tabSelectedTextColor="@color/primary" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:id="@+id/dot_0"
+                android:layout_width="24dp"
+                android:layout_height="8dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_indicator_active" />
+
+            <View
+                android:id="@+id/dot_1"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_indicator_inactive" />
+
+            <View
+                android:id="@+id/dot_2"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:background="@drawable/bg_indicator_inactive" />
+        </LinearLayout>
 
         <View
             android:layout_width="0dp"

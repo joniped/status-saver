@@ -13,7 +13,6 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.MainActivity
 import com.example.R
 import com.example.databinding.ActivityOnboardingBinding
-import com.google.android.material.tabs.TabLayoutMediator
 
 class OnboardingActivity : AppCompatActivity() {
 
@@ -73,12 +72,12 @@ class OnboardingActivity : AppCompatActivity() {
 
         binding.viewPagerOnboard.adapter = OnboardingAdapter(slides)
 
-        // Attach TabLayout as dot indicators
-        TabLayoutMediator(binding.tabIndicator, binding.viewPagerOnboard) { _, _ -> }.attach()
+        updateIndicators(0)
 
         binding.viewPagerOnboard.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
+                updateIndicators(position)
                 val isLastPage = (position == slides.size - 1)
                 if (isLastPage) {
                     binding.btnNext.setText(R.string.get_started)
@@ -89,6 +88,23 @@ class OnboardingActivity : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    private fun updateIndicators(activeIndex: Int) {
+        val density = resources.displayMetrics.density
+        val activeWidth = (24 * density).toInt()
+        val inactiveWidth = (8 * density).toInt()
+
+        val dots = listOf(binding.dot0, binding.dot1, binding.dot2)
+        dots.forEachIndexed { index, dotView ->
+            val isActive = (index == activeIndex)
+            dotView.setBackgroundResource(
+                if (isActive) R.drawable.bg_indicator_active else R.drawable.bg_indicator_inactive
+            )
+            val lp = dotView.layoutParams
+            lp.width = if (isActive) activeWidth else inactiveWidth
+            dotView.layoutParams = lp
+        }
     }
 
     private fun setupListeners() {

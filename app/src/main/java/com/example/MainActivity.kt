@@ -268,11 +268,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBannerAd() {
-        // Create and center sticky 320x50 Unity BannerView
+        // Create and center sticky 320x50 Unity BannerView with automatic fallback and lifecycle handling
         try {
-            binding.bannerAdContainer.visibility = View.GONE
-            bannerView = UnityAdsManager.createBanner(
+            bannerView = UnityAdsManager.setupBanner(
                 this,
+                binding.bannerAdContainer,
                 onLoaded = {
                     binding.bannerAdContainer.visibility = View.VISIBLE
                 },
@@ -280,14 +280,6 @@ class MainActivity : AppCompatActivity() {
                     binding.bannerAdContainer.visibility = View.GONE
                 }
             )
-            binding.bannerAdContainer.removeAllViews()
-            val params = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-            ).apply {
-                gravity = Gravity.CENTER
-            }
-            binding.bannerAdContainer.addView(bannerView, params)
         } catch (e: Exception) {
             e.printStackTrace()
             binding.bannerAdContainer.visibility = View.GONE
