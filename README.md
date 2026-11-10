@@ -263,6 +263,111 @@ gradle :app:testDebugUnitTest
 
 ---
 
+## 🔑 App Signing & Manual Keystore Guide
+
+### Important Note on AI Studio Signing
+In Google AI Studio, the `signingConfigs` block inside `app/build.gradle.kts` is required by the cloud build environment to compile and install apps onto the browser streaming emulator. **Do not remove or alter this block within AI Studio** as it will break emulator deployments and cloud updates.
+
+Once you export your project as a ZIP or push it to GitHub, you can generate an unsigned APK and sign it with your own private key using the instructions below.
+
+---
+
+### Step 1: Generating an Unsigned APK
+
+You can produce an unsigned APK using either of the following approaches on your local computer:
+
+#### Option A: Strip Existing Signature from APK
+If you already built or downloaded an APK:
+```bash
+# Removes all signatures from the APK package
+zip -d app-release.apk 'META-INF/*'
+```
+Renaming it for clarity:
+```bash
+mv app-release.apk app-release-unsigned.apk
+```
+
+#### Option B: Build Unsigned via Local Gradle
+In your local exported copy of `app/build.gradle.kts`, comment out the signingConfig line in `buildTypes`:
+```kotlin
+buildTypes {
+    release {
+        // signingConfig = signingConfigs.getByName("release")
+    }
+}
+```
+Then run:
+```bash
+gradle :app:assembleRelease
+```
+The output will be placed in:
+`app/build/outputs/apk/release/app-release-unsigned.apk`
+
+---
+
+### Step 2: Create Your Own Private Keystore
+Use the Java `keytool` utility (included with any JDK) to create a private signing key:
+```bash
+keytool -genkeypair -v \
+  -keystore my-release-key.jks \
+  -alias my-key-alias \
+  -keyalg RSA \
+  -keysize 2048 \
+  -validity 10000
+```
+> **Security Tip:** Store your `my-release-key.jks` in a secure location and backup your passwords. If you lose this key, you cannot update your app on Google Play!
+
+---
+
+### Step 3: Align the Unsigned APK (`zipalign`)
+Before signing, the APK must be 4-byte aligned using Android SDK's `zipalign` tool (found in `android-sdk/build-tools/<version>/`):
+```bash
+zipalign -v -p 4 app-release-unsigned.apk app-release-aligned.apk
+```
+
+---
+
+### Step 4: Sign the APK (`apksigner`)
+Sign your aligned APK with your private keystore using `apksigner`:
+```bash
+apksigner sign \
+  --ks my-release-key.jks \
+  --ks-key-alias my-key-alias \
+  --out app-release-signed.apk \
+  app-release-aligned.apk
+```
+You will be prompted to enter your keystore password.
+
+---
+
+### Step 5: Verify the Signature
+Verify that the APK is correctly signed and meets Android signature schemes (v1, v2, v3):
+```bash
+apksigner verify --verbose app-release-signed.apk
+```
+Expected output:
+```
+Verifies
+Verified using v1 scheme (JAR signing): true
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): true
+```
+Your `app-release-signed.apk` is now ready for Google Play Console or direct distribution!
+
+---
+
+### Alternative: Automated Signing via Environment Variables
+If you prefer Gradle to automatically sign your release build using your custom key without editing code:
+```bash
+export KEYSTORE_PATH="/path/to/my-release-key.jks"
+export STORE_PASSWORD="your_keystore_password"
+export KEY_PASSWORD="your_key_password"
+
+gradle :app:assembleRelease
+```
+
+---
+
 ## ⚖️ Legal Disclaimer
 
 *Status Saver is an independent utility application developed to manage and preserve media locally. Status Saver is not affiliated with, authorized, maintained, sponsored, or endorsed by WhatsApp LLC, WhatsApp Business, Meta Platforms, Inc., or any of their affiliates.*

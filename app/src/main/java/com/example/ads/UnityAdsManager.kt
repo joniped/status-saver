@@ -22,10 +22,15 @@ object UnityAdsManager {
 
     // Configuration
     const val UNITY_GAME_ID = "5270635"
-    const val DEFAULT_TEST_MODE = false // Try real ads first, with automatic test fallback on NO_FILL
+    // Real ads mode enabled as requested
+    const val DEFAULT_TEST_MODE = false
 
     var currentTestMode = DEFAULT_TEST_MODE
         private set
+
+    fun setTestMode(enabled: Boolean) {
+        currentTestMode = enabled
+    }
 
     const val BANNER_PLACEMENT_ID = "Banner_Android"
     const val INTERSTITIAL_PLACEMENT_ID = "Interstitial_Android"

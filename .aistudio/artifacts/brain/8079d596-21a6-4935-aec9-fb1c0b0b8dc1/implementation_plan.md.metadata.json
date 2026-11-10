@@ -1,0 +1,6 @@
+{
+  "summary":  "Implementation plan detailing how to generate an unsigned APK and manually sign it with a custom keystore, along with adding a comprehensive step-by-step signing guide to the project README.",
+  "updatedAt":  "2026-11-10T12:32:43.111735009Z",
+  "requestFeedback":  true,
+  "userFacing":  true
+}
